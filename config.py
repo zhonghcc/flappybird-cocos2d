@@ -9,7 +9,7 @@ CONFIG = {
           'assetspath':'assets/',
           'originsize':(288,512),
           'display':1,
-          'scrollspeed':5,
+          'scrollspeed':1,
           'G':1,
           'jumpspeed':4,
           

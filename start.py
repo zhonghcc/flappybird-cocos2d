@@ -24,9 +24,11 @@ def init():
     director.init(width=width,height=height,resizable=False)
 
 
-
-    scene = Scene(BackgroundLayer())
-    
+    layer_bg_day = BackgroundLayer('bg_day')
+    layer_land = BackgroundLayer('land')
+    scene1_layers = [layer_bg_day,layer_land]
+    scene = Scene(*scene1_layers)
+    #scene.add(bg_day_layer)
     # Run!
     director.run(scene) 
 
