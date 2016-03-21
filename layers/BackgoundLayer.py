@@ -30,15 +30,15 @@ class BackgroundLayer(Layer):
         self.pos2=self.x
         # timer = threading.Timer(5, self.timerAction)
         # timer.start()
-        pyglet.clock.schedule_interval(self.update, 1/120.0)
+        self.interval = CONFIG['interval']
+        pyglet.clock.schedule_interval(self.update, self.interval)
 
     def update(self,dt):
         spd = CONFIG['scrollspeed']
-        print spd
         # self.image.blit(round(self.pos1,0), 0)
         # self.image.blit(round(self.pos2,0), 0)
-        self.pos1=self.pos1-spd
-        self.pos2=self.pos2-spd
+        self.pos1=self.pos1-spd*dt*1000
+        self.pos2=self.pos2-spd*dt*1000
         if self.pos1<0 and self.pos2<0:
             if self.pos1<self.pos2:
                 self.pos1=self.pos2+self.x
