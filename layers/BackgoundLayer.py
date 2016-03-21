@@ -16,11 +16,12 @@ class BackgroundLayer(Layer):
     '''
 
 
-    def __init__(self,asset):
+    def __init__(self,asset,speedratio=1):
         # always call super()
         super(BackgroundLayer, self).__init__()
-
+        
         # load the image form file
+        self.speedratio = speedratio
         self.asset = asset
         self.image = pyglet.resource.image(CONFIG['assetspath']+self.asset+'.png')
         
@@ -37,8 +38,8 @@ class BackgroundLayer(Layer):
         spd = CONFIG['scrollspeed']
         # self.image.blit(round(self.pos1,0), 0)
         # self.image.blit(round(self.pos2,0), 0)
-        self.pos1=self.pos1-spd*dt*1000
-        self.pos2=self.pos2-spd*dt*1000
+        self.pos1=self.pos1-spd*dt*1000*self.speedratio
+        self.pos2=self.pos2-spd*dt*1000*self.speedratio
         if self.pos1<0 and self.pos2<0:
             if self.pos1<self.pos2:
                 self.pos1=self.pos2+self.x

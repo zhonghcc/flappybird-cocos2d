@@ -14,7 +14,7 @@ CONFIG = {
           'G':1,
           'jumpspeed':4,
           'space':80,
-          'distance':100,
+          'distance':140,
           
           
           }

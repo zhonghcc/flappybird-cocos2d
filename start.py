@@ -25,7 +25,7 @@ def init():
     director.init(width=width,height=height,resizable=False)
 
 
-    layer_bg_day = BackgroundLayer('bg_day')
+    layer_bg_day = BackgroundLayer('bg_day',0.5)
     layer_land = BackgroundLayer('land')
     layer_pipe = PipeLayer()
     scene1_layers = [layer_bg_day,layer_pipe,layer_land]

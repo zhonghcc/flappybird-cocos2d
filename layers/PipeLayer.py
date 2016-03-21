@@ -11,6 +11,8 @@ from cocos.layer import Layer
 from config import CONFIG,ASSETS
 from entity.Pipe import Pipe
 import random
+import Queue
+
 
 class PipeLayer(Layer):
     '''
@@ -23,7 +25,7 @@ class PipeLayer(Layer):
         super(PipeLayer, self).__init__()
 
         # load the image form file
-        self.pipes = []       
+        self.pipes = []
 
         self.x = CONFIG['originsize'][0]
         self.y = CONFIG['originsize'][1]
@@ -40,7 +42,7 @@ class PipeLayer(Layer):
 
         rdm = random.random()
         pos_y = rdm*200+230
-        print pos_y
+#         print pos_y
         pipe1 = Pipe(True,320,pos_y)
         pipe2 = Pipe(False,320,pos_y)
 
@@ -52,11 +54,12 @@ class PipeLayer(Layer):
         spd = CONFIG['scrollspeed']
         # self.image.blit(round(self.pos1,0), 0)
         # self.image.blit(round(self.pos2,0), 0)
-        for item in self.pipes:
-            item.update(dt)
-            if (item.pos_x+item.image_x)<0:
-                self.pipes.remove(item)
-                print "remove pipe"
+        for itm in self.pipes:
+            itm.update(dt)
+        item = self.pipes[0]
+        if (item.pos_x+item.image_x)<0:
+            self.pipes = self.pipes[2:]
+            #print "remove pipe"
         self.distance = self.distance+dt*1000*spd
         if self.distance>CONFIG['distance']:
             self.generatePipe()

@@ -36,13 +36,13 @@ class Pipe(object):
             self.pos_y=-self.image_y+pos_y- space/2
         else:
             self.pos_y=pos_y+space/2
-        print self.pos_y
+#         print self.pos_y
 
     def update(self,dt):
         spd = CONFIG['scrollspeed']
         # self.image.blit(round(self.pos1,0), 0)
         # self.image.blit(round(self.pos2,0), 0)
-        self.pos_x=self.pos_x-spd*1000*dt
+        self.pos_x=self.pos_x-round(spd*1000*dt,2)
 
     def draw(self):
 
