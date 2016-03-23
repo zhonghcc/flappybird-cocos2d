@@ -9,6 +9,7 @@ CONFIG = {
           'interval':1/160.0,
           'assetspath':'assets/',
           'originsize':(288,512),
+          'startpos':(30,400),
           'display':1,
           'scrollspeed':0.08,
           'G':1,

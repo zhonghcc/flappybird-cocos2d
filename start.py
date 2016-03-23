@@ -8,6 +8,7 @@ from cocos.layer import Layer
 from cocos.actions import JumpBy, Lens3D, Reverse
 from layers.BackgoundLayer import *
 from layers.PipeLayer import *
+from layers.PlayerLayer import *
 
 def main(argv=None):
     if argv is None:
@@ -28,7 +29,8 @@ def init():
     layer_bg_day = BackgroundLayer('bg_day',0.5)
     layer_land = BackgroundLayer('land')
     layer_pipe = PipeLayer()
-    scene1_layers = [layer_bg_day,layer_pipe,layer_land]
+    layer_bird = PlayerLayer()
+    scene1_layers = [layer_bg_day,layer_pipe,layer_land,layer_bird]
     scene = Scene(*scene1_layers)
     #scene.add(bg_day_layer)
     # Run!
