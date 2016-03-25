@@ -18,7 +18,7 @@ class PlayerLayer(Layer):
     '''
     classdocs
     '''
-
+    is_event_handler = True
 
     def __init__(self):
         # always call super()
@@ -26,7 +26,7 @@ class PlayerLayer(Layer):
 
         # load the image form file
         startpos = CONFIG['startpos']
-        self.player = Bird(startpos[0],startpos[1])
+        self.player = Bird(self,startpos[0],startpos[1])
 
 
 
@@ -45,5 +45,8 @@ class PlayerLayer(Layer):
         # self.pos1=self.pos1-spd
         # self.pos2=self.pos2-spd
         self.player.draw()       
+
+    def on_key_release(self, keys, mod):
+        self.player.on_key_release(keys,mod)
         
         

@@ -13,7 +13,8 @@ CONFIG = {
           'display':1,
           'scrollspeed':0.08,
           'G':1,
-          'jumpspeed':4,
+          'jumpheight':200,
+          'jumpduration':2,
           'space':80,
           'distance':140,
           
